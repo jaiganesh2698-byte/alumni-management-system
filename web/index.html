@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alumni Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div>
+        <h1 class="app-title">Alumni Management</h1>
+        <p class="app-tagline">Directory, careers, events, and giving</p>
+      </div>
+      <div class="toolbar">
+        <button type="button" class="btn btn-secondary" id="btn-reset" title="Restore sample data from seed">Reset sample data</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="nav" aria-label="Main">
+      <button type="button" data-panel="overview" aria-current="true">Overview</button>
+      <button type="button" data-panel="alumni">Alumni directory</button>
+      <button type="button" data-panel="add-alumni">Register alumni</button>
+      <button type="button" data-panel="careers">Current careers</button>
+      <button type="button" data-panel="events">Events</button>
+      <button type="button" data-panel="donations">Donations</button>
+    </nav>
+
+    <main>
+      <section class="panel" id="panel-overview" aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <div class="stats" id="overview-stats"></div>
+      </section>
+
+      <section class="panel" id="panel-alumni" hidden aria-labelledby="alumni-heading">
+        <h2 id="alumni-heading">Alumni directory</h2>
+        <div class="row-actions">
+          <label class="sr-only" for="filter-alumni">Search alumni</label>
+          <input type="search" id="filter-alumni" placeholder="Search name, email, city…" autocomplete="off" />
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="table-alumni">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Class</th>
+                <th>Degree</th>
+                <th>Department</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="alumni-detail" hidden></div>
+      </section>
+
+      <section class="panel" id="panel-add-alumni" hidden aria-labelledby="add-heading">
+        <h2 id="add-heading">Register alumni</h2>
+        <form id="form-alumni">
+          <div class="form-grid">
+            <div>
+              <label for="a-student-id">Legacy student ID</label>
+              <input type="text" id="a-student-id" name="studentIdLegacy" autocomplete="off" />
+            </div>
+            <div>
+              <label for="a-first">First name</label>
+              <input type="text" id="a-first" name="firstName" required autocomplete="given-name" />
+            </div>
+            <div>
+              <label for="a-last">Last name</label>
+              <input type="text" id="a-last" name="lastName" required autocomplete="family-name" />
+            </div>
+            <div>
+              <label for="a-email">Email</label>
+              <input type="email" id="a-email" name="email" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="a-phone">Phone</label>
+              <input type="text" id="a-phone" name="phone" autocomplete="tel" />
+            </div>
+            <div>
+              <label for="a-year">Graduation year</label>
+              <input type="number" id="a-year" name="graduationYear" required min="1950" max="2100" />
+            </div>
+            <div>
+              <label for="a-degree">Degree program</label>
+              <select id="a-degree" name="degreeProgramId" required></select>
+            </div>
+            <div>
+              <label for="a-dept">Department</label>
+              <select id="a-dept" name="departmentId" required></select>
+            </div>
+            <div>
+              <label for="a-city">City</label>
+              <input type="text" id="a-city" name="city" autocomplete="address-level2" />
+            </div>
+            <div>
+              <label for="a-country">Country</label>
+              <input type="text" id="a-country" name="country" autocomplete="country-name" />
+            </div>
+            <div class="checkbox-field full">
+              <input type="checkbox" id="a-consent" name="consentContact" checked />
+              <label for="a-consent">Consent to contact</label>
+            </div>
+            <div class="full">
+              <label for="a-notes">Notes</label>
+              <textarea id="a-notes" name="notes"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn">Save alumni record</button>
+        </form>
+      </section>
+
+      <section class="panel" id="panel-careers" hidden aria-labelledby="careers-heading">
+        <h2 id="careers-heading">Current employment</h2>
+        <p class="muted" style="margin-top:0">Equivalent to view <code>v_current_employment</code> in the SQL schema.</p>
+        <table class="data-table" id="table-careers">
+          <thead>
+            <tr>
+              <th>Alumni</th>
+              <th>Employer</th>
+              <th>Title</th>
+              <th>Started</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="panel" id="panel-events" hidden aria-labelledby="events-heading">
+        <h2 id="events-heading">Events &amp; registrations</h2>
+        <div id="events-list"></div>
+      </section>
+
+      <section class="panel" id="panel-donations" hidden aria-labelledby="donations-heading">
+        <h2 id="donations-heading">Donations</h2>
+        <form id="form-donation" class="form-grid" style="margin-bottom:1.25rem; align-items:end;">
+          <div>
+            <label for="d-alumni">Alumni</label>
+            <select id="d-alumni" required></select>
+          </div>
+          <div>
+            <label for="d-amount">Amount</label>
+            <input type="number" id="d-amount" required min="0.01" step="0.01" />
+          </div>
+          <div>
+            <label for="d-currency">Currency</label>
+            <input type="text" id="d-currency" value="USD" maxlength="8" />
+          </div>
+          <div>
+            <label for="d-date">Date</label>
+            <input type="date" id="d-date" required />
+          </div>
+          <div>
+            <label for="d-campaign">Campaign</label>
+            <input type="text" id="d-campaign" placeholder="Annual Fund" />
+          </div>
+          <div>
+            <button type="submit" class="btn">Record donation</button>
+          </div>
+        </form>
+        <table class="data-table" id="table-donations">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Donor</th>
+              <th>Amount</th>
+              <th>Campaign</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast-area" id="toasts" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

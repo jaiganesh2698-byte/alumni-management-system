@@ -1,0 +1,45 @@
+{
+  "degreePrograms": [
+    { "id": 1, "code": "BSC-CS", "name": "B.Sc. Computer Science", "level": "Bachelor", "durationYears": 4 },
+    { "id": 2, "code": "MSC-DS", "name": "M.Sc. Data Science", "level": "Master", "durationYears": 2 },
+    { "id": 3, "code": "PHD-EE", "name": "Ph.D. Electrical Engineering", "level": "Doctorate", "durationYears": null }
+  ],
+  "departments": [
+    { "id": 1, "code": "CS", "name": "Computer Science" },
+    { "id": 2, "code": "EE", "name": "Electrical Engineering" },
+    { "id": 3, "code": "BUS", "name": "Business Administration" }
+  ],
+  "alumni": [
+    { "id": 1, "studentIdLegacy": "U2018001", "firstName": "Priya", "lastName": "Nair", "email": "priya.nair@example.com", "phone": "+1-555-0101", "graduationYear": 2018, "degreeProgramId": 1, "departmentId": 1, "city": "Chennai", "country": "India", "consentContact": true, "notes": "" },
+    { "id": 2, "studentIdLegacy": "U2019007", "firstName": "James", "lastName": "Okafor", "email": "j.okafor@example.com", "phone": "+1-555-0102", "graduationYear": 2019, "degreeProgramId": 1, "departmentId": 1, "city": "Toronto", "country": "Canada", "consentContact": true, "notes": "" },
+    { "id": 3, "studentIdLegacy": "G2021003", "firstName": "Mei", "lastName": "Tan", "email": "mei.tan@example.com", "phone": "", "graduationYear": 2021, "degreeProgramId": 2, "departmentId": 1, "city": "Singapore", "country": "Singapore", "consentContact": true, "notes": "" },
+    { "id": 4, "studentIdLegacy": "P2020001", "firstName": "Elena", "lastName": "Volkov", "email": "elena.volkov@example.com", "phone": "+1-555-0104", "graduationYear": 2020, "degreeProgramId": 3, "departmentId": 2, "city": "Berlin", "country": "Germany", "consentContact": false, "notes": "" },
+    { "id": 5, "studentIdLegacy": "U2017033", "firstName": "Carlos", "lastName": "Silva", "email": "carlos.silva@example.com", "phone": "+1-555-0105", "graduationYear": 2017, "degreeProgramId": 1, "departmentId": 3, "city": "São Paulo", "country": "Brazil", "consentContact": true, "notes": "" }
+  ],
+  "employment": [
+    { "id": 1, "alumniId": 1, "employer": "Acme Analytics", "jobTitle": "Software Engineer", "startDate": "2018-07-01", "endDate": "2021-03-15", "isCurrent": false },
+    { "id": 2, "alumniId": 1, "employer": "Northwind Labs", "jobTitle": "Senior Engineer", "startDate": "2021-04-01", "endDate": null, "isCurrent": true },
+    { "id": 3, "alumniId": 2, "employer": "Contoso Health", "jobTitle": "Data Analyst", "startDate": "2019-09-01", "endDate": null, "isCurrent": true },
+    { "id": 4, "alumniId": 3, "employer": "Fabrikam AI", "jobTitle": "ML Engineer", "startDate": "2021-06-01", "endDate": null, "isCurrent": true },
+    { "id": 5, "alumniId": 4, "employer": "Research Institute Z", "jobTitle": "Postdoctoral Researcher", "startDate": "2020-10-01", "endDate": null, "isCurrent": true },
+    { "id": 6, "alumniId": 5, "employer": "Adventure Works", "jobTitle": "Product Manager", "startDate": "2017-08-01", "endDate": "2022-12-31", "isCurrent": false },
+    { "id": 7, "alumniId": 5, "employer": "Wide World Importers", "jobTitle": "Director of Operations", "startDate": "2023-01-15", "endDate": null, "isCurrent": true }
+  ],
+  "events": [
+    { "id": 1, "title": "Class of 2018 Reunion", "eventType": "Reunion", "startsAt": "2026-06-14T18:00:00", "location": "Main Campus Hall", "description": "Ten-year reunion dinner." },
+    { "id": 2, "title": "Alumni Tech Career Panel", "eventType": "Career", "startsAt": "2026-03-05T17:30:00", "location": "Virtual (Zoom)", "description": "Panel with engineers and founders." },
+    { "id": 3, "title": "Annual Giving Day", "eventType": "Fundraising", "startsAt": "2026-09-20T00:00:00", "location": "Online", "description": "24-hour fundraising campaign." }
+  ],
+  "eventRegistrations": [
+    { "alumniId": 1, "eventId": 1, "registeredAt": "2026-01-10T12:00:00", "attended": null },
+    { "alumniId": 2, "eventId": 1, "registeredAt": "2026-01-11T09:00:00", "attended": null },
+    { "alumniId": 2, "eventId": 2, "registeredAt": "2026-02-01T10:00:00", "attended": true },
+    { "alumniId": 3, "eventId": 2, "registeredAt": "2026-02-01T11:00:00", "attended": true },
+    { "alumniId": 5, "eventId": 3, "registeredAt": "2026-01-15T08:00:00", "attended": null }
+  ],
+  "donations": [
+    { "id": 1, "alumniId": 1, "amount": 250, "currency": "USD", "donatedAt": "2025-11-01", "campaign": "Annual Fund" },
+    { "id": 2, "alumniId": 2, "amount": 100, "currency": "USD", "donatedAt": "2025-11-02", "campaign": "Annual Fund" },
+    { "id": 3, "alumniId": 5, "amount": 500, "currency": "USD", "donatedAt": "2026-09-20", "campaign": "Giving Day 2026" }
+  ]
+}
