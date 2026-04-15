@@ -2,16 +2,7 @@
 
 Relational database design for tracking **alumni**, **degrees**, **departments**, **employment**, **events**, and **donations**. The project ships as portable **SQL** you can run with **SQLite** locally or adapt to PostgreSQL / MySQL for coursework, plus a **browser-based front end** (HTML, CSS, JavaScript).
 
-## For faculty (submission)
 
-Use this section as a cover sheet when you turn in the project. Edit the bracketed lines.
-
-| Field | Your entry |
-|--------|------------|
-| **Student name** | [Your name] |
-| **Course / section** | [e.g. CS 241 — Database Management Systems] |
-| **Institution** | [College or university name] |
-| **Date** | [Submission date] |
 
 **What is submitted**
 
@@ -20,12 +11,12 @@ Use this section as a cover sheet when you turn in the project. Edit the bracket
 - **Application UI:** Static web app in `web/` (directory, registration form, careers, events, donations) with in-browser persistence for demos.
 - **Evidence:** Screenshots below show the web UI and sample SQL query output.
 
-**How faculty can verify**
+**How  can verify**
 
 1. Database: from the project root, run `./run.sh`, then `sqlite3 alumni.db` and execute `SELECT * FROM v_alumni_directory;` or `.read sql/03_queries.sql`.
 2. Web UI: `cd web && python3 -m http.server 8080` and open the URL shown in the terminal (or open `web/index.html` directly).
 
-**Regenerating the database screenshot PNG** (optional): after `./run.sh`, run `pip install pillow` once if needed, then `python3 scripts/generate_readme_images.py` to refresh `docs/images/db-01-v_alumni_directory.png`.
+
 
 ## Screenshots (web application)
 
